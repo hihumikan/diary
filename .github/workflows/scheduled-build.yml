@@ -1,0 +1,22 @@
+name: Create daily work issue
+
+on:
+  schedule:
+    # 毎日0時に実行
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: read
+  issues: write 
+
+jobs:
+  stuff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: create issue by template
+        uses: JasonEtco/create-an-issue@5d9504915f79f9cc6d791934b8ef34f2353dd74d
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          filename: .github/daily-template.md
