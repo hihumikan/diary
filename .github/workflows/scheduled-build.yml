@@ -1,9 +1,6 @@
 name: Create daily work issue
 
 on:
-  schedule:
-    # 毎日0時に実行
-    - cron: '0 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -22,3 +19,4 @@ jobs:
         with:
           filename: .github/daily-template.md
           assignees: hihumikan
+          
